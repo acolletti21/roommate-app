@@ -1,0 +1,9 @@
+<%= form_tag url="users/#{@user.id}/neighborhoods", method: :post do %>
+<div class="field">
+  <%= label_tag "Neighboorhoods" %><br />
+  <%= collection_check_boxes :neighborhoods, :ids, @neighborhoods, :id, :name do |b| %>
+     <%= b.label(class: "check_box") { b.check_box(class: "check_box") } %> 
+  <% end %>
+</div>
+<%= submit_tag "submit"%>
+<%end%>

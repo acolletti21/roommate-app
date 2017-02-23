@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -48,8 +52,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def destroy
     @user = User.find(params[:id])
+    @user.destroy
+    redirect_to "/signup"
+    flash[:warning] = "Account has been destroyed"
+    redirect_to = "/signup"
   end
 
+  def neighborhoods
+    @neighborhoods = Neighborhood.all
+    @user = User.find(params[:id])
+  end
 end
