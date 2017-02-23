@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id' => 'users#update'
-  get 'users/:id/neighborhoods' => 'users#neighborhoods'
+
+  get 'users/:id/edit/neighborhoods' => 'neighborhood_choices#edit'
+  post 'users/:id/neighborhoods' => 'neighborhood_choices#update'
+
 
   delete 'users/:id' => 'users#destroy'
 

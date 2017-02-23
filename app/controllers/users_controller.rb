@@ -60,8 +60,8 @@ class UsersController < ApplicationController
     redirect_to = "/signup"
   end
 
-  def neighborhoods
-    @neighborhoods = Neighborhood.all
-    @user = User.find(params[:id])
-  end
+  # def neighborhoods
+  #   @neighborhoods = Neighborhood.all
+  #   @user = User.find(params[:id])
+  # end
 end
