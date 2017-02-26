@@ -10,11 +10,17 @@ class User < ApplicationRecord
   validates :user_name, uniqueness: true
   validates :user_name, length: { minimum: 2} 
 
+
    
   def user_neighborhoods
-    @users.each do |user|
-      neighborhood_choices(neighborhood_id)
-    end
+    names = []
+      users = User.all
+      users.each do |user|
+        user.neighborhoods.each do |neighborhood|
+          names << neighborhood.name 
+        end
+      end
+    names.join(", ")
   end
 
 
