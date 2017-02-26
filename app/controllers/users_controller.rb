@@ -34,6 +34,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+     def compare_answers(other_user)
+      user = User.find(id)
+      answers_in_common = user.id & other_user.id
+    end
   end
 
   def edit
