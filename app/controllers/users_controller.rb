@@ -1,4 +1,16 @@
 class UsersController < ApplicationController
+
+  def index
+    @users = User.all
+    neighborhood_type = params[:neighborhood]
+    neighborhood = params[:neighborhood]
+
+    if neighborhood_type
+      neighborhood = Neighborhood.find_by(name: neighborhood_type)
+      @users = category.users
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -12,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Successfully Created User Account"
-      redirect_to '/'
+      redirect_to '/users'
     else
       flash[:warning] = "Invalid Email or Password"
       redirect_to '/signup'

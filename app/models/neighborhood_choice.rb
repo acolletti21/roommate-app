@@ -1,6 +1,5 @@
 class NeighborhoodChoice < ApplicationRecord
   belongs_to :user
-  belongs_to :neighborhoods
+  belongs_to :neighborhood
 
-  # accepts_nested_attributes_for :neighborhoods
 end

@@ -1,0 +1,14 @@
+<h1 style="text-align:center">Welcome</h1>
+
+  <% @users.each do |user|%>
+ 
+    <div class="col-md-8 col-sm-offset-2">  
+      <div class="well">
+        <a href="/users/<%= user.id %>"> 
+        <h3><%= user.user_name %></h3></a>
+        <h4>Author: <%= user.bio %></h4>
+        <h4><%= user.neighborhoods.name %></h4>
+      </div>
+    </div> 
+
+   <% end%>
