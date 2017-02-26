@@ -23,12 +23,12 @@ class User < ApplicationRecord
     names.join(", ")
   end
 
-
-  # def compare_answers
-  #   users.each do |them|
-  #     answers_in_common = them.id & @current_user.id
-  #   end
-  # end
+  def compare_answers(other_user)
+    users = User.all
+    users.each do |them|
+      answers_in_common = them.id & other_user.id
+    end
+  end
 #should pass in a parameter to compare it to. general compare method could compare smaller methods
 
 end
