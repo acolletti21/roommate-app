@@ -14,8 +14,8 @@ class User < ApplicationRecord
 # -----------------------------
 # controller
 
-@me = User.find(2)
-@potential_roommates = User.all
+# @me = User.find(2)
+# @potential_roommates = User.all
 
 
 # view

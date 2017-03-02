@@ -1,6 +1,33 @@
-
 <h1>Update Information</h1>
-<%= form_for @user, :url => "/users/#{@user.id}"  do |f|  %>
+<%=form_tag "/users/#{@user.id}", method: :patch do%>
+  <div>
+    <%= label_tag :age  %>
+    <%= text_field_tag :age, @user.age %>
+  </div>
+  <div>
+    <%= label_tag :min_age  %>
+    <%= text_field_tag :min_age, @user.min_age %>
+  </div>
+  <div>
+    <%= label_tag :max_age  %>
+    <%= text_field_tag :max_age, @user.max_age %>
+  </div>
+  <div>
+    <%= label_tag :min_price  %>
+    <%= text_field_tag :min_price, @user.min_price %>
+  </div>
+  <div>
+    <%= label_tag :max_price  %>
+    <%= text_field_tag :max_price, @user.max_price %>
+  </div>
+  <div>
+    <%= label_tag :min_roommates  %>
+    <%= text_field_tag :min_roommates, @user.min_roommates %>
+  </div>
+  <div>
+    <%= label_tag :max_roommates  %>
+    <%= text_field_tag :max_roommates, @user.max_roommates %>
+  </div>
 
   <div>
     <h5>Your Gender:</h5>
