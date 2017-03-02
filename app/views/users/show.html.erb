@@ -14,7 +14,7 @@
   <h4>Gender Preferences: <%= @user.gender_pref %></h4>
   <h4>Common Neighborhoods: <%= @user.common_neighborhoods(@user) %></h4>
   <h3>Bio: <%= @user.bio %></h3>
-     <h4><%= @user.answer_keys(@user, current_user) %></h4>
+     <h4>common answers:   <%= @user.answer_keys(@user, current_user) %></h4>
      <h4>age match <%= @user.age_answers(@user, current_user) %></h4>
      <h4>pets match <%= @user.pets_answers(@user, current_user) %></h4>
 
