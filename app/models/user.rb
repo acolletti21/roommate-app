@@ -11,19 +11,38 @@ class User < ApplicationRecord
   validates :user_name, length: { minimum: 2} 
 
 
+# -----------------------------
+# controller
+
+@me = User.find(2)
+@potential_roommates = User.all
+
+
+# view
+# @users.each do |user|
+#   <h1><%= user.name %></h1>
+#   <% @user.common_neighborhoods(user).each do |loc| %>
+#     <li><%= loc %></li>
+#   <% end %>
+# end
+# -----------------------------
+
    
-  def user_neighborhoods
-    names = []
-      users = User.all
-      users.each do |user|
-        user.neighborhoods.each do |neighborhood|
-          names << neighborhood.name 
+  def common_neighborhoods(other_user)
+    my_neighborhoods = self.neighborhoods
+    their_neighborhoods = other_user.neighborhoods
+    common =[]
+
+    hood_arr = my_neighborhoods.select { |my_neighborhood| their_neighborhoods.include?(my_neighborhood)}
+      hood_arr.each do |hood|
+        if common.include?(hood) == false
+          common << hood[:name]
         end
       end
-    names.join(", ")
+    return common.join(", ")
+    #this goes through each of my neighborhoods, sees if their hoods include it, then return it if it does. i didnt name this with a variable since it will be the last thing that gets returned 
   end
 
-  # this works & returns the keyname and value if they match but it doesn't include correct logic yet to say whether its the acceptable answer to the current(other) user
   def answer_keys(user, other_user)
     keys = [:has_pets, :pets, :gender, :gender_pref]
     keys.each do |key|
@@ -32,6 +51,7 @@ class User < ApplicationRecord
       end
     end
   end
+  # this works & returns the keyname and value if they match but it doesn't include correct logic yet to say whether its the acceptable answer to the current(other) user
 
   def pets_answers(user, current_user)
     count = 0
@@ -55,6 +75,9 @@ class User < ApplicationRecord
     end
   end
 
+
+
+
   # def compare_answers(other_user)
   #   result = {}
   #   @users = User.all
@@ -62,7 +85,7 @@ class User < ApplicationRecord
   #   p result 
   # end
 
-  #both of these work
+  #both of these work to pull hash info
 
   # def compare_answers(other_user)
   #   answers_in_common = self[:min_roommates] & other_user[:min_roommates]
