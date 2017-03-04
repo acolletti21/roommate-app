@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -9,7 +10,6 @@ class UsersController < ApplicationController
       neighborhood = Neighborhood.find_by(name: neighborhood_type)
       @users = category.users
     end
-
   end
 
   def new

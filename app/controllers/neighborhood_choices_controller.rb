@@ -1,7 +1,13 @@
 class NeighborhoodChoicesController < ApplicationController
+  before_action :authenticate_user! 
+
   def edit
     @user = User.find(params[:id])
     @neighborhood_choices = NeighborhoodChoice.new
+
+    if current_user.id != @user.id
+      redirect_to '/users'
+    end
   end
 
   def update

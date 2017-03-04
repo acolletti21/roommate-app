@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true
   validates :user_name, uniqueness: true
   validates :user_name, length: { minimum: 2} 
+  validates :min_age, numericality: { only_integer: true }
 
 
 # -----------------------------

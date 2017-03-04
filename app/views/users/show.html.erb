@@ -12,7 +12,7 @@
   <h4>Are roommates with pets okay? <%= @user.pets %></h4>
   <h4>Gender: <%= @user.gender %></h4>
   <h4>Gender Preferences: <%= @user.gender_pref %></h4>
-  <h4>Common Neighborhoods: <%= @user.common_neighborhoods(@user) %></h4>
+  <h4>Common Neighborhoods: <%= current_fffuser.common_neighborhoods(@user) %></h4>
   <h3>Bio: <%= @user.bio %></h3>
   <% if current_user.age != nil %>
      <h4>common answers:   <%= @user.answer_keys(@user, current_user) %></h4>
