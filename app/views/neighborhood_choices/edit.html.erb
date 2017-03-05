@@ -3,8 +3,8 @@
   <%= label_tag :neighboorhoods %><br />
   <%= collection_check_boxes(:neighborhood, :id, Neighborhood.all, :id, :name, { checked: @user.neighborhood_choices.map(&:neighborhood_id)}) do |b| %>
      <%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %> 
-     <%= hidden_field_tag :user_id, @user.id %>
   <% end %>
+     <%= hidden_field_tag :user_id, @user.id %>
 </div>
 <%= submit_tag "submit"%>
 <%end%>
