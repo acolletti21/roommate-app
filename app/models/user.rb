@@ -107,7 +107,7 @@ class User < ApplicationRecord
   end
 
   def match_all(user, current_user)
-    age_answers(user, current_user) + pets_answers(user, current_user) + roommate_answers(user, current_user) + price_answers(user, current_user) + gender_answers(user, current_user)
+    total = ( age_answers(user, current_user) + pets_answers(user, current_user) + roommate_answers(user, current_user) + price_answers(user, current_user) + gender_answers(user, current_user) ) / 5.0 * 100
   end
 
   # def compare_answers(other_user)

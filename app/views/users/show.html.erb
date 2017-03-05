@@ -21,7 +21,7 @@
      <h4># roommates match <%= @user.roommate_answers(@user, current_user) %></h4>
      <h4>price match <%= @user.price_answers(@user, current_user) %></h4>
      <h4>gender match <%= @user.gender_answers(@user, current_user) %></h4>
-     <h4>total matches <%= @user.match_all(@user, current_user) %></h4>
+     <h4>Match Percentage <%= @user.match_all(@user, current_user).to_i %>% </h4>
   <% end %>
 
     
