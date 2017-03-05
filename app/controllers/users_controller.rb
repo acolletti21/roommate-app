@@ -2,14 +2,22 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
 
   def index
-    @users = User.all
+    @users = User.sorted_by_percent(current_user)
     neighborhood_type = params[:neighborhood]
     neighborhood = params[:neighborhood]
+    sort_attribute = params[:sort]
+    sort_order = params[:sort_order]
 
     if neighborhood_type
       neighborhood = Neighborhood.find_by(name: neighborhood_type)
-      @users = category.users
+      @users = neighborhood.users
     end
+
+    if sort_attribute && sort_order
+      @users = @users.order(sort_attribute => sort_order)
+    elsif sort_attribute
+      @users = @users.order(sort_attribute)
+    end  
   end
 
   def new

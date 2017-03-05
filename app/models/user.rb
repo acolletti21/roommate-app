@@ -44,29 +44,29 @@ class User < ApplicationRecord
     #this goes through each of my neighborhoods, sees if their hoods include it, then return it if it does. i didnt name this with a variable since it will be the last thing that gets returned 
   end
 
-  def answer_keys(user, other_user)
+  def answer_keys(other_user)
     keys = [:has_pets, :pets, :gender, :gender_pref]
     keys.each do |key|
-      if user[key] == other_user[key]
-        return "#{key} " + user[:key].to_s 
+      if self[key] == other_user[key]
+        return "#{key} " + self[:key].to_s 
       end
     end
   end
   # this works & returns the keyname and value if they match but it doesn't include correct logic yet to say whether its the acceptable answer to the current(other) user
 
-  def pets_answers(user, current_user)
-   if user.has_pets? && current_user[:pets] == false
+  def pet_answers(current_user)
+   if self.has_pets? && current_user[:pets] == false
      count = 0
-   elsif current_user.has_pets? && user[:pets] == false
+   elsif current_user.has_pets? && self[:pets] == false
      count = 0
    else 
      count = 1
    end
  end
 
-  def age_answers(user, current_user)
-    if user.age >= current_user.min_age && user.age <= current_user.max_age
-      if current_user.age >= user.min_age && current_user.age <= user.max_age
+  def age_answers(current_user)
+    if self.age >= current_user.min_age && self.age <= current_user.max_age
+      if current_user.age >= self.min_age && current_user.age <= self.max_age
         count = 1
       else
         count = 0
@@ -75,16 +75,16 @@ class User < ApplicationRecord
     end
   end
 
-  def roommate_answers(user, current_user)
-    if user.min_roommates >= current_user.min_roommates && user.min_roommates <= current_user.max_roommates
+  def roommate_answers(current_user)
+    if self.min_roommates >= current_user.min_roommates && self.min_roommates <= current_user.max_roommates
         count = 1
     else
         count = 0
     end
   end
 
-  def price_answers(user, current_user)
-    sum = (user.max_price + current_user.max_price) / 2
+  def price_answers(current_user)
+    sum = (self.max_price + current_user.max_price) / 2
     if (sum - current_user.max_price) <= (sum * 0.20)
       count = 1
     else
@@ -92,24 +92,44 @@ class User < ApplicationRecord
     end
   end
 
-  def gender_answers(user, current_user)
-    if user.gender == current_user.gender_pref && current_user.gender == user.gender_pref
+  def gender_answers(current_user)
+    if self.gender == current_user.gender_pref && current_user.gender == self.gender_pref
       count = 1
-    elsif user.gender_pref == "any" && current_user.gender_pref == "any"
+    elsif self.gender_pref == "any" && current_user.gender_pref == "any"
       count = 1
-    elsif user.gender_pref == "male" && user.gender == current_user.gender_pref || current_user.gender_pref == "any"
+    elsif self.gender_pref == "male" && self.gender == current_user.gender_pref || current_user.gender_pref == "any"
       count = 1
-    elsif current_user.gender_pref == "any" && user.gender == current_user.gender_pref
+    elsif current_user.gender_pref == "any" && self.gender == current_user.gender_pref
       count = 1
     else 
       count = 0
     end
   end
 
-  def match_all(user, current_user)
-    total = ( age_answers(user, current_user) + pets_answers(user, current_user) + roommate_answers(user, current_user) + price_answers(user, current_user) + gender_answers(user, current_user) ) / 5.0 * 100
+  def match_percent(current_user)
+    total = ( age_answers(current_user) + pet_answers(current_user) + roommate_answers(current_user) + price_answers(current_user) + gender_answers(current_user) ) * 100 / 5
+
+    # total = 0
+    # total += 20 if age_answers(current_user)
+    # total += 20 if pet_answers(current_user)
+    # total += 20 if roommate_answers(current_user)
+    # total += 20 if price_answers(current_user)
+    # total += 20 if gender_answers(current_user)
+    # total
   end
 
+  def self.sorted_by_percent(current_user, desc=true)
+    sorted_results = self.all.sort_by { |mate| mate.match_percent(current_user) }
+    sorted_results.reverse! if desc
+    sorted_results
+  end
+
+end
+
+
+
+
+  
   # def compare_answers(other_user)
   #   result = {}
   #   @users = User.all
@@ -117,16 +137,5 @@ class User < ApplicationRecord
   #   p result 
   # end
 
-  #both of these work to pull hash info
-
-  # def compare_answers(other_user)
-  #   answers_in_common = self[:min_roommates] & other_user[:min_roommates]
-  #   p answers_in_common
-  # end
-#should pass in a parameter to compare it to. general compare method could compare smaller methods
-
-
-
-end
 
 

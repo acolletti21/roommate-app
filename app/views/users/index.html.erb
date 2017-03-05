@@ -6,10 +6,11 @@
       <div class="well">
         <a href="/users/<%= user.id %>"> 
         <h3><%= user.user_name %></h3></a>
+        <h4>Match Percentage <%= user.match_percent(current_user) %>% </h4>
         <h4>Bio: <%= user.bio %></h4>
         <h4> <%= user.common_neighborhoods(user) %></h4>
 
       </div>
     </div> 
-
    <% end%>
+   

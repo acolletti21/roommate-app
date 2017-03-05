@@ -15,13 +15,13 @@
   <h4>Common Neighborhoods: <%= current_user.common_neighborhoods(@user) %></h4>
   <h3>Bio: <%= @user.bio %></h3>
   <% if current_user.age != nil %>
-     <h4>common answers:   <%= @user.answer_keys(@user, current_user) %></h4>
-     <h4>age match <%= @user.age_answers(@user, current_user) %></h4>
-     <h4>pets match <%= @user.pets_answers(@user, current_user) %></h4>
-     <h4># roommates match <%= @user.roommate_answers(@user, current_user) %></h4>
-     <h4>price match <%= @user.price_answers(@user, current_user) %></h4>
-     <h4>gender match <%= @user.gender_answers(@user, current_user) %></h4>
-     <h4>Match Percentage <%= @user.match_all(@user, current_user).to_i %>% </h4>
+     <h4>common answers:   <%= @user.answer_keys(current_user) %></h4>
+     <h4>age match <%= @user.age_answers(current_user) %></h4>
+     <h4>pets match <%= @user.pet_answers(current_user) %></h4>
+     <h4># roommates match <%= @user.roommate_answers(current_user) %></h4>
+     <h4>price match <%= @user.price_answers(current_user) %></h4>
+     <h4>gender match <%= @user.gender_answers(current_user) %></h4>
+     <h4>Match Percent <%= @user.match_percent(current_user) %>% </h4>
   <% end %>
 
     
