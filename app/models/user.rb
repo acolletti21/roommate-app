@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true
   validates :user_name, uniqueness: true
   validates :user_name, length: { minimum: 2} 
-  validates :min_age, numericality: { only_integer: true }
+  # validates :min_age, numericality: { only_integer: true } this breaks signup
 
 
 # -----------------------------
@@ -55,13 +55,11 @@ class User < ApplicationRecord
   # this works & returns the keyname and value if they match but it doesn't include correct logic yet to say whether its the acceptable answer to the current(other) user
 
   def pets_answers(user, current_user)
-    count = 0
-    if user.has_pets? && current_user[:pets] == false
-      count = 0
+
+    if user.has_pets == current_user[:pets]
+      count = 3
     elsif current_user.has_pets? && user[:pets] == false
       count = 0
-    else 
-      count = 1
     end
   end
 

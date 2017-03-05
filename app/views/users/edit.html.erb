@@ -1,36 +1,41 @@
 
 <div class="form-horizontal col-sm-5 col-sm-offset-3">
   <h1>Update Information</h1>
-  <%= form_for @user, :url => "/users/#{@user.id}"  do |f|  %>
+  <%= form_tag "/users/#{@user.id}", method: :patch do %>
+
     <div class="form-group">
       <h5>Your Gender:</h5>
-      <%= radio_button("user", "gender", "female")%> Female
-      <%= radio_button("user", "gender", "male")%> Male
+        <%= radio_button_tag(:gender, "female", @user.gender == "female")%>
+        <%= label_tag(:gender, "Female") %>
+        <%= radio_button_tag(:gender, "male", @user.gender == "male")%>
+        <%= label_tag(:gender, "Male") %>
     </div>
+
 
     <div class="form-group">
       <h5>Roommate Preference: </h5>
-      <%= radio_button("user", "gender_pref", "female")%> Female
-      <%= radio_button("user", "gender_pref", "male")%> Male
-      <%= radio_button("user", "gender_pref", "any")%> Any
+      <%= radio_button_tag(:gender_pref, "female", @user.gender_pref == "female")%> Female
+      <%= radio_button_tag(:gender_pref, "male", @user.gender_pref == "male")%> Male
+      <%= radio_button_tag(:gender_pref, "any", @user.gender_pref == "any")%> Any
     </div>
 
      <div class="form-group">
       <h5>Do You have pets?</h5>
-      <%= radio_button("user", "has_pets", "true")%> Yes
-      <%= radio_button("user", "has_pets", "false")%> No
+      <%= radio_button_tag(:has_pets, true, @user.has_pets == true) %> Yes
+      <%= radio_button_tag(:has_pets, false, @user.has_pets == false) %> No
     </div>
 
     <div class="form-group">
       <h5>Is it fine if your roommate has pets?</h5>
-      <%= radio_button("user", "pets", "true")%> Yes
-      <%= radio_button("user", "pets", "false")%> No
+      <%= radio_button_tag(:pets, true, @user.pets == true)%> Yes
+      <%= radio_button_tag(:pets, false, @user.pets == false)%> No
     </div>
 
     <div class="form-group">
       <%= label_tag :age, "Your Age" %>
       <%= text_field_tag :age, @user.age %>
     </div>
+
     <div class="form-group">
       <%= label_tag :age, "Seeking roommates between the ages of:"%>
       <br>
@@ -40,21 +45,26 @@
     <div class="form-group">
       <%= label_tag :min_price, "Minimum price for your share of rent:"%><%= text_field_tag :min_price, @user.min_price%>
     </div>
+
     <div class="form-group">
       <%= label_tag :max_price, "Maximum price for your share of rent:"%><%= text_field_tag :max_price, @user.max_price%>
     </div>
+
     <div class="form-group">
       <%= label_tag :min_roommates, "Minimum # of roommates"  %>
       <%= text_field_tag :min_roommates, @user.min_roommates %>
     </div>
+
     <div class="form-group">
       <%= label_tag :max_roommates, "Maximum # of roommates" %>
       <%= text_field_tag :max_roommates, @user.max_roommates %>
     </div>
+
     <div class="form-group">
       <%= label_tag :bio %>
       <%= text_area_tag :bio, @user.bio, size: "55x8", class: "form-control"%>
     </div>
+
 <%= submit_tag "Submit", class: "btn btn-default" %>
 <%end%>
 </div>
