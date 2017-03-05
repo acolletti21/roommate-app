@@ -55,27 +55,60 @@ class User < ApplicationRecord
   # this works & returns the keyname and value if they match but it doesn't include correct logic yet to say whether its the acceptable answer to the current(other) user
 
   def pets_answers(user, current_user)
+   if user.has_pets? && current_user[:pets] == false
+     count = 0
+   elsif current_user.has_pets? && user[:pets] == false
+     count = 0
+   else 
+     count = 1
+   end
+ end
 
-    if user.has_pets == current_user[:pets]
-      count = 3
-    elsif current_user.has_pets? && user[:pets] == false
-      count = 0
+  def age_answers(user, current_user)
+    if user.age >= current_user.min_age && user.age <= current_user.max_age
+      if current_user.age >= user.min_age && current_user.age <= user.max_age
+        count = 1
+      else
+        count = 0
+      end
+    else count = 0
     end
   end
 
-  def age_answers(user, current_user)
-    count = 0
-    if user.age >= current_user.min_age && user.age <= current_user.max_age
-      count = 1
-    elsif current_user.age >= user.min_age && current_user.age <= user.max_age
+  def roommate_answers(user, current_user)
+    if user.min_roommates >= current_user.min_roommates && user.min_roommates <= current_user.max_roommates
+        count = 1
+    else
+        count = 0
+    end
+  end
+
+  def price_answers(user, current_user)
+    sum = (user.max_price + current_user.max_price) / 2
+    if (sum - current_user.max_price) <= (sum * 0.20)
       count = 1
     else
       count = 0
     end
   end
 
+  def gender_answers(user, current_user)
+    if user.gender == current_user.gender_pref && current_user.gender == user.gender_pref
+      count = 1
+    elsif user.gender_pref == "any" && current_user.gender_pref == "any"
+      count = 1
+    elsif user.gender_pref == "male" && user.gender == current_user.gender_pref || current_user.gender_pref == "any"
+      count = 1
+    elsif current_user.gender_pref == "any" && user.gender == current_user.gender_pref
+      count = 1
+    else 
+      count = 0
+    end
+  end
 
-
+  def match_all(user, current_user)
+    age_answers(user, current_user) + pets_answers(user, current_user) + roommate_answers(user, current_user) + price_answers(user, current_user) + gender_answers(user, current_user)
+  end
 
   # def compare_answers(other_user)
   #   result = {}

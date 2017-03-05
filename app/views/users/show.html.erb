@@ -18,6 +18,10 @@
      <h4>common answers:   <%= @user.answer_keys(@user, current_user) %></h4>
      <h4>age match <%= @user.age_answers(@user, current_user) %></h4>
      <h4>pets match <%= @user.pets_answers(@user, current_user) %></h4>
+     <h4># roommates match <%= @user.roommate_answers(@user, current_user) %></h4>
+     <h4>price match <%= @user.price_answers(@user, current_user) %></h4>
+     <h4>gender match <%= @user.gender_answers(@user, current_user) %></h4>
+     <h4>total matches <%= @user.match_all(@user, current_user) %></h4>
   <% end %>
 
     
