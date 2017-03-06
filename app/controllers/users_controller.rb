@@ -14,8 +14,10 @@ class UsersController < ApplicationController
     end
 
     if sort_attribute && sort_order
+      @users = User.all
       @users = @users.order(sort_attribute => sort_order)
     elsif sort_attribute
+      @users = User.all
       @users = @users.order(sort_attribute)
     end  
   end
