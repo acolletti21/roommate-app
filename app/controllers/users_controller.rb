@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     neighborhood = params[:neighborhood]
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
+    search_term = params[:search_term]
 
     if neighborhood_type
       neighborhood = Neighborhood.find_by(name: neighborhood_type)
@@ -20,6 +21,13 @@ class UsersController < ApplicationController
       @users = User.all
       @users = @users.order(sort_attribute)
     end  
+
+    if search_term
+      @users = User.all
+      @users = @users.where("user_name iLIKE ? OR bio iLIKE ?",
+                                  "%#{search_term}%",
+                                  "%#{search_term}%")
+    end
   end
 
   def new

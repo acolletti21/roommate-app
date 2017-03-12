@@ -28,21 +28,17 @@ class User < ApplicationRecord
 # end
 # -----------------------------
 
-   
-  def common_neighborhoods(other_user)
-    my_neighborhoods = self.neighborhoods
-    their_neighborhoods = other_user.neighborhoods
-    common =[]
 
-    hood_arr = my_neighborhoods.select { |my_neighborhood| their_neighborhoods.include?(my_neighborhood)}
-      hood_arr.each do |hood|
-        if common.include?(hood) == false
-          common << hood[:name]
-        end
+  def common_neighborhoods(other_user)
+    common = []
+    other_user.neighborhoods.pluck(:name).each do |neighborhood|
+      if self.neighborhoods.pluck(:name).include?(neighborhood)
+        common << neighborhood
       end
+    end
     return common.join(", ")
-    #this goes through each of my neighborhoods, sees if their hoods include it, then return it if it does. i didnt name this with a variable since it will be the last thing that gets returned 
   end
+
 
   def answer_keys(other_user)
     keys = [:has_pets, :pets, :gender, :gender_pref]

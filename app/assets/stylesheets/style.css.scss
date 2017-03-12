@@ -1,0 +1,14 @@
+.hoodbg {
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
+  position:absolute; z-index: 2;
+}
+
+
+path:hover {
+  stroke: #002868 !important;
+  stroke-width:2px;
+  stroke-linejoin: round;
+  fill: #002868 !important;
+  fill-opacity: 0.5;
+  cursor: pointer;
+}
