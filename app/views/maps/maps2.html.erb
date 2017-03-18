@@ -1,7 +1,27 @@
-<div style="margin:20px">
-  <div style="padding-left: 3.5px"><%= inline_svg('sharpbg.svg', class: "map-spans") %></div>
+<body style="background-color: #fffcc9">
 
-  <div><%= inline_svg('smallmap.svg', class: "map-spans", size: "602 * 701")%></div>
-</div>
+  <div class="row">
+    <div style="padding-top: 25px">
+      <%= inline_svg('sharpbg.svg', class: "map-bg") %>
+      <%= inline_svg('smallmap.svg', class: "map-paths")%>
+    </div>
+    <div class="display-apts col-sm-6">
+      <h2>Listings By Neighborhood</h2>
+      <p>hello</p>
+      <p>hello</p>
 
+      <p>bubble sort sparknotes</p>
+      <p>The algorithm for bubble sort requires a pair of nested loops. The outer loop must iterate once for each element in the data set (of size n) while the inner loop iterates n times the first time it is entered, n-1 times the second, and so on. Consider the purpose of each loop. As explained above, bubble sort is structured so that on each pass through the list the next largest element of the data is moved to its proper place. Therefore, to get all n elements in their correct places, the outer loop must be executed n times.</p>
 
+      <p>The inner loop is executed on each iteration of the outer loop. Its purpose is to put the next largest element is being put into place. The inner loop therefore does the comparing and swapping of adjacent elements. To determine the complexity of this loop, we calculate the number of comparisons that have to be made. On the first iteration of the outer loop, while trying to place the largest element, there have to be n - 1 comparisons: the first comparison is made between the first and second elements, the second is made between the second and third elements, and so on until the n-1th comparison is made between the n-1th and the nth element. On the second iteration of the outer loop, there is no need to compare the against the last element of the list, because it was put in the correct place on the previous pass. Therefore, the second iteration requires only n-2 comparisons. This pattern continues until the second-to-last iteration of the outer loop when only the first two elements of the list are unsorted; clearly in this case, only one comparison is necessary. The total number of comparisons, therefore, is (n - 1) + (n - 2)...(2) + (1) = n(n - 1)/2 or O(n 2) .</p>
+
+      <p>The best case for bubble sort occurs when the list is already sorted or nearly sorted. In the case where the list is already sorted, bubble sort will terminate after the first iteration, since no swaps were made. Any time that a pass is made through the list and no swaps were made, it is certain that the list is sorted. Bubble sort is also efficient when one random element needs to be sorted into a sorted list, provided that new element is placed at the beginning and not at the end. When placed at the beginning, it will simply bubble up to the correct place, and the second iteration through the list will generate 0 swaps, ending the sort. Recall that if the random element is placed at the end, bubble sort loses its efficiency because each element greater than it must bubble all the way up to the top.</p>
+
+      <p>The absolute worst case for bubble sort is when the smallest element of the list is at the large end. Because in each iteration only the largest unsorted element gets put in its proper location, when the smallest element is at the end, it will have to be swapped each time through the list, and it wont get to the front of the list until all n iterations have occurred. In this worst case, it take n iterations of n/2 swaps so the order is, again, n 2 .
+
+      Best Case: n Average Case: n 2 Worst Case: n 2</p>
+      <p>hello</p>
+    </div>
+
+  </div>
+</body>
