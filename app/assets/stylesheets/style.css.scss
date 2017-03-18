@@ -1,6 +1,22 @@
 .hoodbg {
   font-family: Tahoma,Verdana,Segoe,sans-serif;
-  position:absolute; z-index: 2;
+  // position:absolute; z-index: 2;
+}
+
+.relative{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  // background-image: url('sharpbg.svg');
+  // background-repeat: no-repeat;
+}
+
+
+.map-spans{
+  width: 600px;
+  position: absolute;
+
+  background-color: transparent;
 }
 
 
@@ -12,4 +28,18 @@ path:hover {
   fill-opacity: 0.5;
   cursor: pointer;
 }
+
+
+.neighborhood-style{
+    -moz-column-count: 3;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 10px;
+    column-count: 3;
+    column-gap: 10px;
+}
+.neighborhood-style label{
+    width: 200px;
+}
+
 

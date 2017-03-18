@@ -10,7 +10,7 @@ body.boxed header {
 }
 
 .wrap {
-    overflow: hidden;
+    overflow: visible;
 }
 
 .page-mask { 
