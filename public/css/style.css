@@ -1195,7 +1195,7 @@ ul#filters {
 
 .item .item-inner,.post-image {
     margin-bottom: 30px;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
     border-radius: 2px;
 }
@@ -1203,7 +1203,7 @@ ul#filters {
 .post-image, .img-content {
 	padding: 4px;
 	border: 1px solid #ddd;
-	background: url(../img/bg_off.png) repeat;
+	background: url(../img/bg_off.png) no-repeat;
 }
 
 .img-content {
@@ -1222,6 +1222,7 @@ ul#filters {
 
 .post-image .nivoSlider a {
 	position: absolute !important;
+    max-height: 600px;
 }
 
 .portfolio .item .portfolio-item {
