@@ -9,13 +9,13 @@
         <h4>Match Percentage <%= user.match_percent(current_user) %>% </h4>
         <h4>Bio: <%= user.bio %></h4>
         <h4> <%= user.common_neighborhoods(user) %></h4>
-
+         <h4><%= user.add_nh_classes %></h4>
       </div>
     </div> 
    <% end%>
 
     
-
+  <link rel="stylesheet" href="/css/prettyPhoto.css" media="screen">
 
    <!-- Main Content start-->
             <div class="content">
@@ -30,6 +30,9 @@
                               <li><a href="#filter" data-option-value=".css">CSS</a></li>
                               <li><a href="#filter" data-option-value=".jquery">jQuery</a></li>
                               <li><a href="#filter" data-option-value=".php">PHP</a></li>
+                                 <% Neighborhood.all.sort_by{|n| n.name}.each do |neighborhood| %>
+                                    <li><a href="#filter" data-option-value=".nh<%= neighborhood.id%>"><%= neighborhood.name%></a></li>
+                                 <% end %>
                            </ul>
                         </div>
                      </div>
@@ -37,22 +40,34 @@
                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="row">
                            <div class="portfolio three-column">
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web jquery item">
+                             
+
+
+
+                              
+
+
+                           
+                           <% @users.each do |user|%>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web css wp item <%= user.add_nh_classes %>">
                                  <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-1.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
+                                    <a href="img/users/userpic<%= user.id%>.png" class="portfolio-item-link" data-rel="prettyPhoto" >
                                     <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-1.jpg" alt=" "/>
+                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/users/userpic<%= user.id%>.png" alt=" "/>
                                     </a>
                                     <div class="portfolio-item-title">
-                                       <a href="single-project.html">Design Team</a>
+                                       <a href="/users/<%= user.id %>"><%= user.user_name %></a>
                                        <p>
-                                          Design / Development
+                                          Match Percentage <b><%= user.match_percent(current_user) %>%</b> 
                                        </p>
+                                       <p><%= user.common_neighborhoods(user) %></p>
                                     </div>
                                     <div class="clearfix"></div>
                                  </div>
                               </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wp css item">
+                           <% end %>
+
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wp css jquery item">
                                  <div class="portfolio-item">
                                     <a href="img/portfolio/portfolio-2.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
                                     <span class="portfolio-item-hover"></span>
@@ -67,56 +82,12 @@
                                     <div class="clearfix"></div>
                                  </div>
                               </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 php jquery wp item">
+
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web php item wp">
                                  <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-3.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
+                                    <a href="img/users/userpic9.png" class="portfolio-item-link" data-rel="prettyPhoto">
                                     <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-3.jpg" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Lady Shop</a>
-                                       <p>
-                                          Business / Ecommerce
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wp jquery css item">
-                                 <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-4.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-4.jpg" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Office Workers</a>
-                                       <p>
-                                          Design / Development
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web css wp item">
-                                 <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-5.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-5.jpg" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Idea Guy</a>
-                                       <p>
-                                          Idea / Development
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web php item">
-                                 <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-6.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-6.jpg" alt=" "/>
+                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/users/userpic9.png" alt=" "/>
                                     </a>
                                     <div class="portfolio-item-title">
                                        <a href="single-project.html">Hair Style</a>
@@ -127,6 +98,8 @@
                                     <div class="clearfix"></div>
                                  </div>
                               </div>
+
+
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wp css item">
                                  <div class="portfolio-item">
                                     <a href="img/portfolio/portfolio-7.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
@@ -142,36 +115,8 @@
                                     <div class="clearfix"></div>
                                  </div>
                               </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web jquery item">
-                                 <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-9.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-9.jpg" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Camera Support</a>
-                                       <p>
-                                          Support / Communication
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 css php wp item">
-                                 <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-8.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-8.jpg" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Insta Genious</a>
-                                       <p>
-                                          App / Photo
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
+                    
+                              
                            </div>
                         </div>
                      </div>
@@ -180,18 +125,24 @@
             </div>
             <!-- Main Content end-->
 
-            <!-- The Scripts -->
+      <!-- The Scripts -->
       <script src="js/jquery.min.js"></script>
+      <script src="js/jquery-migrate-1.2.1.min.js"></script>
+      <script src="js/jquery-ui.js"></script>
       <script src="js/bootstrap.js"></script>
       <script src="js/jquery.parallax.js"></script>
-      <script src="js/jquery.wait.js"></script> 
-      <script src="js/modernizr-2.6.2.min.js"></script> 
+      <script src="js/jquery.wait.js"></script>
+      <script src="js/modernizr-2.6.2.min.js"></script>
+      <script src="js/modernizr.custom.js"></script>
+      <script src="js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
       <script src="js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
       <script src="js/jquery.nivo.slider.pack.js"></script>
       <script src="js/jquery.prettyPhoto.js"></script>
       <script src="js/superfish.js"></script>
       <script src="js/tweetMachine.js"></script>
       <script src="js/tytabs.js"></script>
+      <script src="js/jquery.gmap.min.js"></script>
+      <script src="js/circularnav.js"></script>
       <script src="js/jquery.sticky.js"></script>
       <script src="js/jflickrfeed.js"></script>
       <script src="js/imagesloaded.pkgd.min.js"></script>
@@ -202,3 +153,4 @@
       <script src="js/spectrum.js"></script>
       <script src="js/switcher.js"></script>
       <script src="js/custom.js"></script>
+

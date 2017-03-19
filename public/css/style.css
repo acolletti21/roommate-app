@@ -2329,6 +2329,9 @@ a.portfolio-item-link {
     text-align: center;
     padding: 10px 5px 10px 5px;
     background: #fffbea;
+    max-height: 90px;
+    min-height: 90px;
+    overflow: auto;
 }
 
 .portfolio-item-title a {
@@ -2466,8 +2469,8 @@ a.portfolio-item-link {
     background: #EA4C89;
 }
 
-.team .item .team-member-links a.twitter:hover,.member-social.dark a.twitter:hover,header .social li.twitter:hover,footer .social li.twitter:hover {
-    background: #2C77BA;
+/*.team .item .team-member-links a.twitter:hover,.member-social.dark a.twitter:hover,header .social li.twitter:hover,footer .social li.twitter:hover {
+  */  background: #2C77BA;
 }
 
 .team .item .team-member-links a.gplus:hover,.member-social.dark a.gplus:hover,header .social li.gplus:hover,footer .social li.gplus:hover {
