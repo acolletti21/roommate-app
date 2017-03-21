@@ -12,7 +12,7 @@
                               <!-- Slider Start-->
                               <div class=" theme-default">
                                  <div>
-                                    <a href="#"><img src="/img/users/userpic9.png" alt="Nature"></a>
+                                    <a href="#" style="text-align: center"><img src="/img/users/userpic<%= @user.id%>.png" alt="Nature"></a>
                                  </div>
                               </div>
                               <div class="clearfix"></div>
@@ -33,7 +33,7 @@
                      <!-- Left Section End -->
                      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 sidebar">
                         <div class="widget">
-                           <h3 class="title">Project Summary</h3>
+                           <h3 class="title"><%= @user.user_name.titleize %>'s Profile</h3>
                            <p>
                               There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
                            </p>
