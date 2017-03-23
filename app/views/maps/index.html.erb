@@ -3,20 +3,20 @@
     <div ng-controller="mapsCtrl" ng-init="setup()">
     <div style="padding-top: 25px">
       <%= inline_svg('sharpbg.svg', class: "map-bg") %>
-      <%= inline_svg('smallmap.svg', class: "map-paths")%>
+      <%= inline_svg('smallmap.svg', class: "map-paths", aria: true)%>
     </div>
     <div class="display-apts col-sm-6">
       <h2>Listings By Neighborhood</h2>
        {{ 2+2  }}
 
-      <div ng-repeat="apartment in apartments">
+      <div ng-repeat="apartment in apartments | filter: {neighborhood: neighborhoodSelection }">
+      <p ng-click="sortApts(apartment.neighborhood)">{{ apartment.address }}</p>
         <h2>{{ apartment.address }}</h2>
         <h4>{{ apartment.neighborhood }}</h4>
         <h4>${{ apartment.rent}}/mo</h4>
         <h4>{{ apartment.bedrooms }} bed, {{ apartment.baths }} bath, {{ apartment.sqft }}ft<sup>2</sup></h4>
       </div>
 
-      <div ng-click>{{ apartment.first.address }}</div>
 
       
     </div>
