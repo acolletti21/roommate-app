@@ -4,6 +4,32 @@
 }
 
 
+.map-bg{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: transparent;
+  text-align: left;
+}
+
+.map-paths{
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: transparent;
+  text-align: left;
+  // padding-left: 3px;
+  // padding-top: 5px;
+}
+
+.display-apts{
+  height: 100%;
+  width: 50%;
+  right: 20px;
+  position: absolute !important;
+  overflow: scroll;
+}
+
 path:hover {
   stroke: #002868 !important;
   stroke-width:2px;
@@ -12,3 +38,18 @@ path:hover {
   fill-opacity: 0.5;
   cursor: pointer;
 }
+
+
+.neighborhood-style{
+    -moz-column-count: 3;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 10px;
+    column-count: 3;
+    column-gap: 10px;
+}
+.neighborhood-style label{
+    width: 200px;
+}
+
+

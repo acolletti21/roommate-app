@@ -23,4 +23,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/maps' => 'maps#index'
+  get '/maps/2' => 'maps#maps2'
+  
+  get '/apartments' => 'apartments#index'
+
 end

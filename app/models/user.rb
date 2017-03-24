@@ -39,6 +39,13 @@ class User < ApplicationRecord
     return common.join(", ")
   end
 
+  def add_nh_classes
+    tags = []
+    self.neighborhoods.each do |neighborhood|
+      tags << "nh" + neighborhood.id.to_s
+    end
+    return tags.join(" ")
+  end
 
   def answer_keys(other_user)
     keys = [:has_pets, :pets, :gender, :gender_pref]
@@ -102,8 +109,17 @@ class User < ApplicationRecord
     end
   end
 
+  def neighborhood_answers(current_user)
+    list = current_user.common_neighborhoods(self)
+    if list.length == 0
+      count = 0
+    else
+      count = 1
+    end
+  end
+
   def match_percent(current_user)
-    total = ( age_answers(current_user) + pet_answers(current_user) + roommate_answers(current_user) + price_answers(current_user) + gender_answers(current_user) ) * 100 / 5
+    total = ( age_answers(current_user) + pet_answers(current_user) + roommate_answers(current_user) + price_answers(current_user) + gender_answers(current_user) + neighborhood_answers(current_user) ) * 100 / 6
 
     # total = 0
     # total += 20 if age_answers(current_user)

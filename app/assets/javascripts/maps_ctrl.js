@@ -1,10 +1,23 @@
 (function(){
  "use strict";
  
- angular.module("app").controller("mapsCtrl", function($scope){
-  var names = ["Avondale", "Lakeview", "Roscoe Village", "Logan Square", "Bucktown", "Clyborn Corridor", "Lincoln Park", "Humboldt Park", "Wicker Park", "Goose Island", "Old Town", "Gold Coast", "Ukrainian Village", "Goose Island", "River West", "River North", "Streeterville", "West Town", "Little Italy", "West Loop", "Loop", "South Loop", "Pilsen", "Bridgeport", "Chinatown", "Bronzeville"];
+ angular.module("app").controller("mapsCtrl", function($scope, $http){
+  $scope.setup = function(){
+    getApts();
+  };
   
-     //add more models here
+  function getApts() {
+      $http.get("/apartments.json").then(function(response){
+        $scope.apartments = response.data;
+      });
+    }
+
+  $scope.sortApts = function(neighborhood)
+    {
+      $scope.neighborhoodSelection = neighborhood;
+    };
+  
+
   window.scope = $scope;
  });
 }());
