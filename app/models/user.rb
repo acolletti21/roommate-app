@@ -12,22 +12,10 @@ class User < ApplicationRecord
   # validates :min_age, numericality: { only_integer: true } this breaks signup
 
 
-# -----------------------------
-# controller
 
-# @me = User.find(2)
-# @potential_roommates = User.all
-
-
-# view
-# @users.each do |user|
-#   <h1><%= user.name %></h1>
-#   <% @user.common_neighborhoods(user).each do |loc| %>
-#     <li><%= loc %></li>
-#   <% end %>
-# end
-# -----------------------------
-
+  def self.all_except(user)
+   where.not(id: user)
+  end
 
   def common_neighborhoods(other_user)
     common = []
@@ -119,19 +107,17 @@ class User < ApplicationRecord
   end
 
   def match_percent(current_user)
-    total = ( age_answers(current_user) + pet_answers(current_user) + roommate_answers(current_user) + price_answers(current_user) + gender_answers(current_user) + neighborhood_answers(current_user) ) * 100 / 6
-
-    # total = 0
-    # total += 20 if age_answers(current_user)
-    # total += 20 if pet_answers(current_user)
-    # total += 20 if roommate_answers(current_user)
-    # total += 20 if price_answers(current_user)
-    # total += 20 if gender_answers(current_user)
-    # total
+    total = ( age_answers(current_user) 
+      + pet_answers(current_user) 
+      + roommate_answers(current_user) 
+      + price_answers(current_user) 
+      + gender_answers(current_user) 
+      + neighborhood_answers(current_user) ) * 100 / 6
   end
 
+
   def self.sorted_by_percent(current_user, desc=true)
-    sorted_results = self.all.sort_by { |mate| mate.match_percent(current_user) }
+    sorted_results = self.all_except(current_user).sort_by { |mate| mate.match_percent(current_user) }
     sorted_results.reverse! if desc
     sorted_results
   end

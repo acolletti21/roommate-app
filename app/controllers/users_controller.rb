@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
 
+    def self.all_except(user)
+   where.not(id: user)
+  end
+
   def index
     @users = User.sorted_by_percent(current_user)
     neighborhood_type = params[:neighborhood]
@@ -8,6 +12,7 @@ class UsersController < ApplicationController
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
     search_term = params[:search_term]
+
 
     if neighborhood_type
       neighborhood = Neighborhood.find_by(name: neighborhood_type)
