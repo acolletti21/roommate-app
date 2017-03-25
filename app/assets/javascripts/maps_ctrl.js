@@ -16,7 +16,6 @@
     {
       $scope.neighborhoodSelection = neighborhood;
     };
-  
 
   window.scope = $scope;
  });

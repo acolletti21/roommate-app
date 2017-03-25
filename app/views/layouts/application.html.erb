@@ -87,14 +87,9 @@
      <a href="/">
        Home
        <span class="sf-sub-indicator">
-         <i class="fa fa-angle-down "></i>
        </span>
      </a>
-     <ul>
-      <li><a href="index-2.html" class="sf-with-ul">Home 2</a></li>
-      <li><a href="index-3.html" class="sf-with-ul">Home 3</a></li>
-      <li><a href="index-4.html" class="sf-with-ul">Home 4</a></li>
-    </ul>
+
   </li>
   <li>
    <a href="/" class="sf-with-ul">
@@ -113,11 +108,15 @@
          <i class="fa fa-angle-right "></i>
        </span>
      </a>
-      <ul>
-        <% Neighborhood.all.each do |neighborhood| %>
-          <li><a href="/users?neighborhood=<%= neighborhood.name %>"><%= neighborhood.name %></a></li>
-        <% end %>
-      </ul>
+      <% if current_user %>
+        <ul style="overflow: auto !important">
+          <% Neighborhood.all.each do |neighborhood| %>
+            <% if current_user.neighborhoods.include?(neighborhood) == false %>
+            <li><a href="/users?neighborhood=<%= neighborhood.name %>"><%= neighborhood.name %></a></li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
     </li>
   </ul>
   </li>  
@@ -155,6 +154,8 @@
     </span>
   </a>
   <ul>
+    <li><a href="/users/<%= current_user.id%>">View Profile</a></li>
+    <li><a href="/users/<%= current_user.id%>/edit">Edit Profile</a></li>
     <li><a href="/logout">Logout</a></li>
   </ul>
 </li>

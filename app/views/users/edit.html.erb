@@ -62,9 +62,10 @@
 
     <div class="form-group">
       <%= label_tag :bio %>
-      <%= text_area_tag :bio, @user.bio, size: "55x8", class: "form-control"%>
+      <%= text_area_tag :bio, @user.bio, size: "55x8", class: "form-control bio-text"%>
     </div>
 
 <%= submit_tag "Submit", class: "btn btn-default" %>
+<%= link_to "Add Neighborhoods", "/users/#{@user.id}/edit/neighborhoods", class: "btn btn-default", style: "float: right" %>
 <%end%>
 </div>

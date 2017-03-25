@@ -1,5 +1,5 @@
 <%= form_tag url="/users/#{@user.id}/neighborhoods", method: :post do %>
-    <%= label_tag :neighboorhoods %><br />
+    <h3 style="text-align: center; padding-top: 2%"<%= label_tag :neighborhoods %></h3><br />
 <div class="col-md-8 col-sm-offset-2"> 
   <div class="neighborhood-style">
     <%= collection_check_boxes(:neighborhood, :id, Neighborhood.all.sort_by{|n| n.name}, :id, :name, { checked: @user.neighborhood_choices.map(&:neighborhood_id)}) do |b| %>
@@ -8,5 +8,10 @@
        <%= hidden_field_tag :user_id, @user.id %>
   </div>
 </div>
-<%= submit_tag "submit"%>
+<div class="clearfix"></div>
+
+<div class="clearfix">
+  <p style="text-align: center; padding-top: 2%;"><%= submit_tag "submit", class: "btn btn-default" %></p>
+</div>
 <%end%>
+

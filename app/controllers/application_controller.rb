@@ -10,4 +10,7 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def profile_check!
+    redirect_to "/users/#{current_user.id}/edit" if current_user.age == nil
+  end
 end

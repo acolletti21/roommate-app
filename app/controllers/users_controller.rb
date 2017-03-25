@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create]
+  before_action :profile_check!, only: [:index]
 
     def self.all_except(user)
    where.not(id: user)
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Successfully Created User Account"
-      redirect_to '/users'
+      redirect_to "/users/#{@user.id}/edit"
     else
       flash[:warning] = "Invalid Email or Password"
       redirect_to '/signup'
@@ -85,7 +86,7 @@ class UsersController < ApplicationController
                                 )
     if @user.save
       flash[:success] = "Successfully Updated User Account"
-      redirect_to "/users/#{@user.id}"
+      redirect_to "/users/#{@user.id}/edit/neighborhoods"
     else
       flash[:warning] = "User info failed to save"
       redirect_to "/users/#{@user.id}/edit"

@@ -23,9 +23,6 @@
                         <div id="options">
                            <ul id="filters" class="option-set clearfix" data-option-key="filter">
                               <li><a href="#filter" data-option-value="*" class="selected">All</a></li>
-                              <li><a href="#filter" data-option-value=".css">CSS</a></li>
-                              <li><a href="#filter" data-option-value=".jquery">jQuery</a></li>
-                              <li><a href="#filter" data-option-value=".php">PHP</a></li>
                                  <% current_user.neighborhoods.sort_by{|n| n.name}.each do |neighborhood| %>
                                     <li><a href="#filter" data-option-value=".nh<%= neighborhood.id%>"><%= neighborhood.name%></a></li>
                                  <% end %>
@@ -45,7 +42,7 @@
 
                            
                            <% @users.each do |user|%>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web css wp item <%= user.add_nh_classes %>">
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 item <%= user.add_nh_classes %>">
                                  <div class="portfolio-item" style="box-shadow:0px 5px 8px #a88888">
                                     <a href="img/users/userpic<%= user.id%>.png" class="portfolio-item-link" data-rel="prettyPhoto" >
                                     <span class="portfolio-item-hover"></span>
@@ -65,54 +62,7 @@
                               </div>
                            <% end %>
 
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wp css jquery item">
-                                 <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-2.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-2.jpg" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Super Boy</a>
-                                       <p>
-                                          Fashion / Style
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 web php item wp">
-                                 <div class="portfolio-item">
-                                    <a href="img/users/userpic9.png" class="portfolio-item-link" data-rel="prettyPhoto">
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/users/userpic9.png" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Hair Style</a>
-                                       <p>
-                                          Life / Work
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-
-
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wp css item">
-                                 <div class="portfolio-item">
-                                    <a href="img/portfolio/portfolio-7.jpg" class="portfolio-item-link" data-rel="prettyPhoto" >
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="img/portfolio/portfolio-7.jpg" alt=" "/>
-                                    </a>
-                                    <div class="portfolio-item-title">
-                                       <a href="single-project.html">Insurance Guy</a>
-                                       <p>
-                                          Life / Finance
-                                       </p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
+                           
                     
                               
                            </div>

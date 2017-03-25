@@ -47,9 +47,13 @@ path:hover {
     -webkit-column-gap: 10px;
     column-count: 3;
     column-gap: 10px;
+    padding-left: 10%;
 }
 .neighborhood-style label{
     width: 200px;
 }
 
+.bio-text {
+ white-space: pre-line;
+}
 

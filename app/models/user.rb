@@ -107,12 +107,7 @@ class User < ApplicationRecord
   end
 
   def match_percent(current_user)
-    total = ( age_answers(current_user) 
-      + pet_answers(current_user) 
-      + roommate_answers(current_user) 
-      + price_answers(current_user) 
-      + gender_answers(current_user) 
-      + neighborhood_answers(current_user) ) * 100 / 6
+    total = ( age_answers(current_user) + pet_answers(current_user) + roommate_answers(current_user) + price_answers(current_user) + gender_answers(current_user) + neighborhood_answers(current_user) ) * 100 / 6
   end
 
 
