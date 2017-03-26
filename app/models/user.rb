@@ -88,9 +88,11 @@ class User < ApplicationRecord
       count = 1
     elsif self.gender_pref == "any" && current_user.gender_pref == "any"
       count = 1
-    elsif self.gender_pref == "male" && self.gender == current_user.gender_pref || current_user.gender_pref == "any"
+    elsif self.gender_pref === "male" && (self.gender == current_user.gender_pref || current_user.gender_pref == "any")
       count = 1
-    elsif current_user.gender_pref == "any" && self.gender == current_user.gender_pref
+    elsif self.gender_pref == "female" && (self.gender == current_user.gender_pref || current_user.gender_pref == "any")
+      count = 1
+    elsif self.gender_pref == "any" && self.gender == current_user.gender_pref 
       count = 1
     else 
       count = 0

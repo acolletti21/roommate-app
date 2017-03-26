@@ -36,16 +36,20 @@
                         <!-- Project Description End -->  
                         <div class="widget">
                            <div class="favourite">
-                              <a class="btn-special btn-grey" href="#"><strong><i class="fa fa-heart"></i> Add to Favorites</strong></a>
+                           <%= form_tag "/messages", method: :post do %>
+                              <%= button_tag class: "btn-special btn-grey" do %>
+                              <a href="#"><strong><i class="fa fa-envelope"></i> Send A Message</strong></a>
+                              <% end%>
+                            <% end%>
                            </div>
                            <div class="clearfix"></div>
                         </div>
                         <div class="widget">
                            <div class="member-social dark">
-                              <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                              <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                              <a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-                              <a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                              <a class="facebook" href="<%= @user.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
+                              <a class="twitter" href=<%= "http://www.twitter.com/#{@user.twitter}/" %> target="_blank"><i class="fa fa-twitter"></i></a>
+                              <a class="gplus" href="<%= @user.google_plus %>" target="_blank"><i class="fa fa-google-plus"></i></a>
+                              <a class="linkedin" href="<%= @user.linkedin %>" target="_blank"><i class="fa fa-linkedin"></i></a>
                            </div>
                            <div class="clearfix"></div>
                         </div>
@@ -129,7 +133,7 @@
 
 
 
-      <div class="col-sm-6 col-sm-offset-3">
+<!--       <div class="col-sm-6 col-sm-offset-3">
 
         <h1> <%= @user.user_name.titleize %>'s Profile</h1>
         <h4>Age: <%= @user.age %></h4>
@@ -168,7 +172,7 @@
           <% end %>
 
 
-      </div>
+      </div> -->
 
 
    </body>

@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'inline_svg'
+gem 'twilio-ruby', '~> 4.11.1'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

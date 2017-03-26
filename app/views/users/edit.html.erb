@@ -57,6 +57,26 @@
           <%= label_tag :max_roommates, "Maximum # of roommates" %>
           <%= text_field_tag :max_roommates, @user.max_roommates %>
         </div>
+
+        <div class="form-group">
+          <%= label_tag :facebook, "facebook url"%>
+          <%= text_field_tag :facebook, @user.facebook%>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :twitter, "twitter handle"%>
+          <%= text_field_tag :twitter, @user.twitter%>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :google_plus, "google+ email"%>
+          <%= text_field_tag :google_plus, @user.google_plus%>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :linkedin, "linkedIn Url"%>
+          <%= text_field_tag :linkedin, @user.linkedin%>
+        </div>
     </div>
         <div class="form-group">
           <%= label_tag :bio %>

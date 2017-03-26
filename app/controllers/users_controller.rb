@@ -82,7 +82,11 @@ class UsersController < ApplicationController
                                 pets: params[:pets],
                                 gender: params[:gender],
                                 gender_pref: params[:gender_pref],
-                                bio: params[:bio]
+                                bio: params[:bio],
+                                facebook: params[:facebook],
+                                twitter: params[:twitter],
+                                google_plus: params[:google_plus],
+                                linkedin: params[:linkedin]
                                 )
     if @user.save
       flash[:success] = "Successfully Updated User Account"

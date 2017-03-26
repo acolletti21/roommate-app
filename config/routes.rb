@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit/neighborhoods' => 'neighborhood_choices#edit'
   post 'users/:id/neighborhoods' => 'neighborhood_choices#update'
 
+  post '/messages' => 'messages#send_message'
 
   delete 'users/:id' => 'users#destroy'
 
