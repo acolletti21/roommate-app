@@ -86,7 +86,8 @@ class UsersController < ApplicationController
                                 facebook: params[:facebook],
                                 twitter: params[:twitter],
                                 google_plus: params[:google_plus],
-                                linkedin: params[:linkedin]
+                                linkedin: params[:linkedin],
+                                phone: params[:phone]
                                 )
     if @user.save
       flash[:success] = "Successfully Updated User Account"

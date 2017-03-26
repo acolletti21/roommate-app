@@ -36,11 +36,9 @@
                         <!-- Project Description End -->  
                         <div class="widget">
                            <div class="favourite">
-                           <%= form_tag "/messages", method: :post do %>
-                              <%= button_tag class: "btn-special btn-grey" do %>
-                              <a href="#"><strong><i class="fa fa-envelope"></i> Send A Message</strong></a>
-                              <% end%>
-                            <% end%>
+                           <div class="favourite">
+                               <a class="btn-special btn-grey" href="/users/<%= @user.id %>/messages"><strong><i class="fa fa-envelope"></i> Send A Message</strong></a>
+                            </div>
                            </div>
                            <div class="clearfix"></div>
                         </div>

@@ -12,12 +12,13 @@ Rails.application.routes.draw do
   get '/users/:id/edit' => 'users#edit'
   patch '/users/:id' => 'users#update'
 
-  get 'users/:id/edit/neighborhoods' => 'neighborhood_choices#edit'
-  post 'users/:id/neighborhoods' => 'neighborhood_choices#update'
+  get '/users/:id/edit/neighborhoods' => 'neighborhood_choices#edit'
+  post '/users/:id/neighborhoods' => 'neighborhood_choices#update'
 
-  post '/messages' => 'messages#send_message'
+  get '/users/:id/messages' => 'messages#new'
+  post '/users/:id/messages' => 'messages#send_message'
 
-  delete 'users/:id' => 'users#destroy'
+  delete '/users/:id' => 'users#destroy'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
