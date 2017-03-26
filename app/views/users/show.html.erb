@@ -2,7 +2,7 @@
           <div id="main">
 <!-- Main Content start-->
             <div class="content">
-               <div class="container">
+               <div class="container" style="padding: 0% 4%">
                   <div class="row">
                      <div class="posts-block col-lg-7 col-md-7 col-sm-7 col-xs-12">
                         <!-- Recent work start-->
@@ -52,12 +52,64 @@
                         <!-- Project Details Start -->
                         <div class="widget project_details">
                            <h3 class="title">Match Details</h3>
-                           <div class="details-content"><span><strong>Match Percent</strong><em><%= @user.match_percent(current_user) %>%</em></span>
-                              <span><strong>Neighborhoods</strong><em>
+                           <div class="details-content">
+                              <span><strong>Match Percent</strong><em><%= @user.match_percent(current_user) %>%</em></span>
+
+                            <% if @user.age_answers(current_user) == 1 %>
+                              <span class="match-true">
+                            <% else %>
+                              <span>
+                              <%end%>
+                              <strong>Age</strong><em><%= @user.age %></em>
+                                <strong>Minimum Age</strong><em><%= @user.min_age %></em>
+                                <strong>Maximum Age</strong><em><%= @user.max_age %></em>
+                              </span>
+
+                            <% if @user.gender_answers(current_user) == 1 %>
+                              <span class="match-true">
+                            <% else %>
+                              <span>
+                              <%end%>
+                                <strong>Gender</strong><em><%= @user.gender %></em>
+                                <strong>Roommate Preference</strong><em><%= @user.gender_pref %></em>
+                              </span>
+
+                            <% if @user.price_answers(current_user) == 1 %>
+                              <span class="match-true">
+                            <% else %>
+                              <span>
+                              <%end%>
+                                <strong>Minimum Rent</strong><em><%= @user.min_price %></em>
+                                <strong>Maximum Rent</strong><em><%= @user.max_price %></em>
+                              </span>
+
+                            <% if @user.roommate_answers(current_user) == 1 %>
+                              <span class="match-true">
+                            <% else %>
+                              <span>
+                              <%end%>
+                                <strong>Min Roommates</strong><em><%= @user.min_roommates %></em>
+                                <strong>Max Roommates</strong><em><%= @user.max_roommates %></em>
+                              </span>
+
+                            <% if @user.pet_answers(current_user) == 1 %>
+                              <span class="match-true">
+                            <% else %>
+                              <span>
+                              <%end%>
+                                <strong>Has pets?</strong><em><%= @user.has_pets %></em>
+                                <strong>Fine with pets?</strong><em><%= @user.pets %></em>
+                              </span>
+
+                              <span><strong>Neighborhoods</strong><em>&nbsp;</em>
                               <% @user.neighborhoods.each do |neighborhood| %>
-                              <a href="#"> <%= neighborhood.name %></a>
-                              <% end %></em></span>
-                              <span><strong>Author</strong><em>Monzurul Haque</em></span>
+                                <% if current_user.neighborhoods.include? neighborhood %>
+                                <a href="#" style="color: #81b1c1"> <%= neighborhood.name %></a>
+                                <%else%>
+                                <a href="#"> <%= neighborhood.name %></a>
+                                <%end%>
+                              <% end %></span>
+                              
                            </div>
                            <div class="clearfix"></div>
                         </div>

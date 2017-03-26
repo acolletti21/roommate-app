@@ -1,12 +1,11 @@
 <body style="background-color: #fffcc9">
   <div ng-app="app" class="row">
     <div ng-controller="mapsCtrl" ng-init="setup()">
+    
     <div style="padding-top: 25px">
       <%= inline_svg('sharpbg.svg', class: "map-bg") %>
       <%= inline_svg('smallmap.svg', class: "map-paths", aria: true)%>
     </div>
-    <div class="display-apts col-sm-6">
-      <h2 style="width: 75%; text-align:center; margin: 2% 17%">Listings By Neighborhood</h2>
 
 <!--       <div ng-repeat="apartment in apartments | filter: {neighborhood: neighborhoodSelection }">
       <p ng-click="sortApts(apartment.neighborhood)">{{ apartment.address }}</p>
@@ -16,33 +15,32 @@
         <h4>{{ apartment.bedrooms }} bed, {{ apartment.baths }} bath, {{ apartment.sqft }}ft<sup>2</sup></h4>
       </div> -->
 
-
-                             
-                            <div ng-repeat="apartment in apartments | filter: {neighborhood: neighborhoodSelection }">
-                              <div style="width: 70%; float: right; margin: 2% 10%; box-shadow:1px 4px 6px #a88888">
-                                 <div class="portfolio-item">
-                                 
-                                    <a href="https://www.zillow.com{{ apartment.link }}" target="_blank">
-                                    <span class="portfolio-item-hover"></span>
-                                    <span class="fullscreen"><i class="fa fa-search"></i></span><img src="{{ apartment.pic }}" alt=" "/>
-                                 
-                                    <div class="portfolio-item-title" style="text-align: left; max-height: 150px; background: #fff">
-                                      <h2 style="float: left">{{ apartment.address }}</h2> <h3 style="float: right; padding-top: 1%; padding-right: 2%">{{ apartment.neighborhood }}</h3>
-                                      <div class="clearfix"></div>
-                                      <h4>${{ apartment.rent}}/month, {{ apartment.bedrooms }} bed, {{ apartment.baths }} bath, {{ apartment.sqft }}ft<sup>2</sup></h4>
-                                    </a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                 </div>
-                              </div>
-                            </div>
-                         
+    <div class="display-apts col-sm-6">
+      <h2 style="width: 75%; text-align:center; margin: 2% 17%">Listings By Neighborhood</h2>            
+        <div ng-repeat="apartment in apartments | filter: {neighborhood: neighborhoodSelection }">
+          <div style="width: 70%; float: right; margin: 2% 10%; box-shadow:1px 4px 6px #a88888">
+             <div class="portfolio-item">
+             
+                <a href="https://www.zillow.com{{ apartment.link }}" target="_blank">
+                <span class="portfolio-item-hover"></span>
+                <span class="fullscreen"><i class="fa fa-search"></i></span><img src="{{ apartment.pic }}" alt=" "/>
+             
+                <div class="portfolio-item-title" style="text-align: left; max-height: 150px; background: #fff">
+                  <h2 style="float: left">{{ apartment.address }}</h2> <h3 style="float: right; padding-top: 1%; padding-right: 2%">{{ apartment.neighborhood }}</h3>
+                  <div class="clearfix"></div>
+                  <h4>${{ apartment.rent}}/month, {{ apartment.bedrooms }} bed, {{ apartment.baths }} bath, {{ apartment.sqft }}ft<sup>2</sup></h4>
+                </a>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+          </div>
+        </div>              
+    </div>
 
     
             <!-- Main Content end-->
 
     </div>
-  </div>
   </div>
 </body>
  

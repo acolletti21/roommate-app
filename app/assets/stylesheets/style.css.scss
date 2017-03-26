@@ -3,6 +3,24 @@
   position:absolute; z-index: 2;
 }
 
+.match-true{
+  color: #81b1c1 !important;
+    background-color: transparent;
+  // -moz-box-shadow:    0px 20px 20px -15px #a8e1f4 inset;
+  // -webkit-box-shadow: 0px 20px 20px -15px #a8e1f4 inset;
+  // box-shadow:         0px 20px 20px -15px #a8e1f4 inset;
+}
+
+// .project_details span {
+//     border-bottom: 1px solid #E3E3E3;
+//     color: #454545;
+//     float: left;
+//     font-size: 14px;
+//     font-weight: bold;
+//     margin: 0;
+//     padding: 5px 0;
+//     width: 100%;
+// }
 
 .map-bg{
   width: 50%;
@@ -48,6 +66,7 @@ path:hover {
     column-count: 3;
     column-gap: 10px;
     padding-left: 10%;
+    overflow: auto;
 }
 .neighborhood-style label{
     width: 200px;

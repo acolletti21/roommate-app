@@ -92,7 +92,7 @@
 
   </li>
   <li>
-   <a href="/" class="sf-with-ul">
+   <a href="#" class="sf-with-ul">
      Sort Matches 
      <span class="sf-sub-indicator">
        <i class="fa fa-angle-down "></i>
@@ -122,7 +122,7 @@
   </li>  
 
   <li>
-    <a href="/maps">
+    <a href="#">
        Apartments
      <span class="sf-sub-indicator">
        <i class="fa fa-angle-down "></i>
@@ -130,25 +130,13 @@
    </a>
     <ul>
       <li><a href="/maps" class="sf-with-ul">View Map</a></li>
-      <li>
-        <a href="#" class="sf-with-ul"> 
-         By Neighborhood
-         <span class="sf-sub-indicator pull-right">
-           <i class="fa fa-angle-right "></i>
-         </span>
-        </a>
-      <ul>
-        <% Neighborhood.all.each do |neighborhood| %>
-          <li><a href="/users?neighborhood=<%= neighborhood.name %>"><%= neighborhood.name %></a></li>
-        <% end %>
-      </ul>
-    </li>
+      </li>
     </ul>
   </li>                 
 
 <% if current_user %>
 <li>
-  <li><a href="/users/<%= current_user.id %>"><%= current_user.user_name if current_user %>
+  <li><a href="#"><%= current_user.user_name if current_user %>
     <span class="sf-sub-indicator">
       <i class="fa fa-angle-down"></i>
     </span>
@@ -156,6 +144,7 @@
   <ul>
     <li><a href="/users/<%= current_user.id%>">View Profile</a></li>
     <li><a href="/users/<%= current_user.id%>/edit">Edit Profile</a></li>
+     <li><a href="/users/<%= current_user.id %>/edit/neighborhoods">Edit Neighborhoods</a></li>
     <li><a href="/logout">Logout</a></li>
   </ul>
 </li>
