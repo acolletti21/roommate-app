@@ -1878,7 +1878,7 @@ ul.why li:before {
 
 input.form-control, textarea.form-control { 
 	border: solid 1px #CCC;
-	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)) !important;
+	background: -webkit-gradient(linear, left top, left 25, from(#81b1c1), color-stop(4%, #EEEEEE), to(#FFFFFF)) !important;
 	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px) !important;
 	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px !important;
 	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px !important;

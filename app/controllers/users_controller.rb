@@ -48,7 +48,7 @@ class UsersController < ApplicationController
                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "Successfully Created User Account"
+      flash[:info] = "Successfully Created User Account"
       redirect_to "/users/#{@user.id}/edit"
     else
       flash[:warning] = "Invalid Email or Password"
@@ -90,7 +90,7 @@ class UsersController < ApplicationController
                                 phone: params[:phone]
                                 )
     if @user.save
-      flash[:success] = "Successfully Updated User Account"
+      flash[:info] = "Successfully Updated User Account"
       redirect_to "/users/#{@user.id}/edit/neighborhoods"
     else
       flash[:warning] = "User info failed to save"

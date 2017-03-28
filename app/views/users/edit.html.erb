@@ -1,30 +1,31 @@
 <h2 style="text-align: center; padding-top: 2%">Update Information</h2>
-<div class="col-md-8 col-sm-offset-2"> 
+<div class="col-md-8 col-sm-offset-2">
+<div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px"> 
     <div class="neighborhood-style">
       <%= form_tag "/users/#{@user.id}", method: :patch do %>
 
-        <div class="form-group">
-          <h5>Your Gender:</h5>
+        <div class="form-group" style="padding-top: 15px">
+          <label>Your Gender:</label><br />
             <%= radio_button_tag(:gender, "female", @user.gender == "female")%> Female
             <%= radio_button_tag(:gender, "male", @user.gender == "male")%> Male
         </div>
 
 
         <div class="form-group">
-          <h5>Roommate Preference: </h5>
+          <label>Roommate Preference: </label></br />
           <%= radio_button_tag(:gender_pref, "female", @user.gender_pref == "female")%> Female
           <%= radio_button_tag(:gender_pref, "male", @user.gender_pref == "male")%> Male
           <%= radio_button_tag(:gender_pref, "any", @user.gender_pref == "any")%> Any
         </div>
 
          <div class="form-group">
-          <h5>Do You have pets?</h5>
+          <label>Do You have pets?</label><br />
           <%= radio_button_tag(:has_pets, true, @user.has_pets == true) %> Yes
           <%= radio_button_tag(:has_pets, false, @user.has_pets == false) %> No
         </div>
 
         <div class="form-group">
-          <h5>Is it fine if your roommate has pets?</h5>
+          <label>Is it fine if your roommate has pets?</label><br />
           <%= radio_button_tag(:pets, true, @user.pets == true)%> Yes
           <%= radio_button_tag(:pets, false, @user.pets == false)%> No
         </div>
@@ -37,7 +38,7 @@
         <div class="form-group">
           <%= label_tag :age, "Seeking roommates between the ages of:"%>
           <br>
-          <%= text_field_tag :min_age, @user.min_age %> and <%= text_field_tag :max_age, @user.max_age%>
+          <%= text_field_tag :min_age, @user.min_age, size: "6x1" %> and <%= text_field_tag :max_age, @user.max_age, size: "6x1"%>
         </div>
 
         <div class="form-group">
@@ -83,11 +84,14 @@
           <%= text_field_tag :phone, @user.phone%>
         </div>
     </div>
+    <div class="clearfix" style="padding: 2%; text-align: center">
         <div class="form-group">
           <%= label_tag :bio %>
           <%= text_area_tag :bio, @user.bio, size: "55x8", class: "form-control bio-text"%>
         </div>
+    </div>
 
     <p style="text-align: center; padding-top: 2%;"><%= submit_tag "Submit", class: "btn btn-default" %></p>
     <%end%>
+</div>
 </div>

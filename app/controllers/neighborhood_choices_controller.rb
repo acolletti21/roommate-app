@@ -25,7 +25,7 @@ class NeighborhoodChoicesController < ApplicationController
             
             end
           end
-        flash[:success] = "Successfully Updated Neighborhoods"
+        flash[:info] = "Successfully Updated Neighborhoods"
         redirect_to "/users/#{@user.id}"
       else
       render :edit

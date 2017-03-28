@@ -24,7 +24,7 @@ class MessagesController < ApplicationController
       :body => current_user.user_name + " from rooMe says " + params[:message_body_2], 
     })
     if message.sid
-      flash[:success] = "Message Sent!"
+      flash[:info] = "Message Sent!"
       redirect_to "/users/#{@user.id}"
     else
       flash[:warning] = "Message failed, user does not have a number listed"

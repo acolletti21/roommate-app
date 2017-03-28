@@ -6,7 +6,7 @@ end
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in!"
+      flash[:info] = "Successfully logged in!"
       redirect_to "/users/#{user.id}/edit"
     else
       flash[:warning] = "Incorrect email or password"
@@ -16,7 +16,7 @@ end
 
   def destroy
     session[:user_id] = nil
-    flash[:success] = "Successfully Logged Out"
+    flash[:info] = "Successfully Logged Out"
     redirect_to '/login'
   end
 end
