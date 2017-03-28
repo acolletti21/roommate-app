@@ -1,9 +1,9 @@
-<body style="background-color: #fffcc9">
+<body style="background-color: #fffcc9; background-size: 0px">
   <div ng-app="app" class="row">
     <div ng-controller="mapsCtrl" ng-init="setup()">
     
     <div style="padding-top: 25px">
-      <%= inline_svg('sharpbg.svg', class: "map-bg") %>
+      <%= inline_svg('sharpbg.svg', class: "map-bg", position: "fixed") %>
       <%= inline_svg('smallmap.svg', class: "map-paths", aria: true)%>
     </div>
 
@@ -15,7 +15,7 @@
         <h4>{{ apartment.bedrooms }} bed, {{ apartment.baths }} bath, {{ apartment.sqft }}ft<sup>2</sup></h4>
       </div> -->
 
-    <div class="display-apts col-sm-6">
+    <div class="display-apts col-sm-6" style="background-image: url('/img/users/skyline.svg');background-repeat: no-repeat;background-attachment: fixed; background-position: right bottom; background-size: 50%">
       <h2 style="width: 75%; text-align:center; margin: 2% 17%">Listings By Neighborhood</h2>            
         <div ng-repeat="apartment in apartments | filter: {neighborhood: neighborhoodSelection }">
           <div style="width: 70%; float: right; margin: 2% 10%; box-shadow:1px 4px 6px #a88888">

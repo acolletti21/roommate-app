@@ -27,7 +27,14 @@
   height: 100%;
   position: absolute;
   background-color: transparent;
+  opacity: 0.9;
   text-align: left;
+}
+.sky-bg{
+  background-image: image-url('/img/users/skyline.svg'); 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center bottom;
 }
 
 .map-paths{

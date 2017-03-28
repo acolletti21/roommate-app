@@ -1,6 +1,6 @@
 <h2 style="text-align: center; padding-top: 2%">Update Information</h2>
 <div class="col-md-8 col-sm-offset-2">
-<div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px"> 
+<div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px; background-color: #fff; opacity: 0.85"> 
     <div class="neighborhood-style">
       <%= form_tag "/users/#{@user.id}", method: :patch do %>
 
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <p style="text-align: center; padding-top: 2%;"><%= submit_tag "Submit", class: "btn btn-default" %></p>
+    <p style="text-align: center; padding-top: 1%;"><%= submit_tag "Submit", class: "btn btn-default" %></p>
     <%end%>
 </div>
 </div>

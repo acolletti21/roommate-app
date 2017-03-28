@@ -1,7 +1,8 @@
+
 <%= form_tag url="/users/#{@user.id}/neighborhoods", method: :post do %>
     <h2 style="text-align: center; padding-top: 2%"<%= label_tag :neighborhoods %></h2><br />
 <div class="col-md-8 col-sm-offset-2"> 
-  <div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px"> 
+  <div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px; background-color: #fff; opacity: 0.8"> 
     <div class="neighborhood-style">
       <%= collection_check_boxes(:neighborhood, :id, Neighborhood.all.sort_by{|n| n.name}, :id, :name, { checked: @user.neighborhood_choices.map(&:neighborhood_id)}) do |b| %>
          <%= b.label(:"data-value" => b.value, :item_wrapper_class => 'neighborhood-style') { b.check_box + " " + b.text } %> 
@@ -12,9 +13,11 @@
   <div class="clearfix"></div>
 
   <div class="clearfix">
-    <p style="text-align: center; padding-top: 2%;"><%= submit_tag "submit", class: "btn btn-default" %></p>
+    <p style="text-align: center; padding-top: 1%;"><%= submit_tag "submit", class: "btn btn-default" %></p>
   </div>
 <%end%>
 <br />
 </div>
+
+
 
