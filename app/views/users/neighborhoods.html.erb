@@ -1,9 +1,0 @@
-<%= form_tag url="/users/#{@user.id}/neighborhoods", method: :post do %>
-<div class="field">
-  <%= label_tag "Neighboorhoods" %><br />
-  <%= collection_check_boxes(:neighborhood_id, :ids, @neighborhoods, :id, :name { checked: neighborhood_choice.neighborhoods.map(&:to_param) }) do |b| %>
-     <%= b.label(:"data-value" => b.value) { b.check_box + " " + b.text } %> 
-  <% end %>
-</div>
-<%= submit_tag "submit"%>
-<%end%>

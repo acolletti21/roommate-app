@@ -2,9 +2,9 @@
   <div ng-app="app" class="row">
     <div ng-controller="mapsCtrl" ng-init="setup()">
     
-    <div style="padding-top: 25px">
+    <div style="padding-top: 25px; margin: 1px">
       <%= inline_svg('sharpbg.svg', class: "map-bg", position: "fixed") %>
-      <%= inline_svg('smallmap.svg', class: "map-paths", aria: true)%>
+      <%= inline_svg('smallmap.svg', class: "map-paths")%>
     </div>
 
 <!--       <div ng-repeat="apartment in apartments | filter: {neighborhood: neighborhoodSelection }">
